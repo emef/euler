@@ -1,8 +1,0 @@
-(let ((fib-table (make-hash-table)))
-  (defun fib (n)
-    (if (eq n 0)
-        1
-        (let ((memo (gethash n fib-table)))
-          (or memo
-              (setf (gethash n fib-table) 
-                    (+ (fib (- n 1) (- n 2)))))))))

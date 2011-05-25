@@ -1,6 +1,0 @@
-(defun expt-to-n (n)
-  (do* ((i 0 (1+ i))
-        (j 1 (+ 2 j))
-        (lst '(1) (cons (+ i j) lst)))
-       ((< n i) lst)))
-           
