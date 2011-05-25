@@ -1,0 +1,5 @@
+(defun range (i n)
+  (when (<= i n)
+    (cons i (range (1+ i) n))))
+
+(reduce #'+ (mapcar #'(lambda (n) (expt n n)) (range 1 1000)))
