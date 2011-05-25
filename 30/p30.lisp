@@ -36,6 +36,6 @@
   (eql n (reduce #'+ (mapcar #'(lambda (n) (expt n pow)) 
                              (digits n)))))
 
-(format t "sum of numbers who are equal to sum of their digits raised to the power 4 is: ~A~%"
-         (filter (rcurry #'sum-of-digit-powers-p 4)
-                            (range 1 1000000)))
+(format t "sum of numbers who are equal to sum of their digits raised to the power 5 is: ~A~%"
+         (reduce #'+ (filter (rcurry #'sum-of-digit-powers-p 5)
+                             (range 2 1000000))))
