@@ -34,4 +34,8 @@ quadratic n^2 + an + b"
     (count-primes 1)))
     
 (defun find-quad (max-a max-b)
-  
+  (let ((acc nil))
+    (loop for a from (- 0 max-a) to max-a do
+         (loop for b from (- 0 max-b) to max-b do
+              (push (cons a b) acc)))
+    nil))j
