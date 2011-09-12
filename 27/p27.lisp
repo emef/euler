@@ -22,6 +22,9 @@
 (ql:quickload "euler-utils")
 (use-package :euler-utils)
 
+(defmacro prime-quad (a b n)
+  `(+ (* ,n ,n) (* ,a ,n) ,b))
+
 (defun produced-primes (a b)
   "returns number of primes produced for consecutive vales of n in the
 quadratic n^2 + an + b"
@@ -33,5 +36,15 @@ quadratic n^2 + an + b"
                  n)))
     (count-primes 1)))
     
-(defun find-quad (max-a max-b)
-  
+(defun find-quad ()
+  (let ((best 1)
+        (best-pair nil))
+    (dotimes (i 2000)
+      (dotimes (j 2000)
+        (let* ((a (- i 1000))
+               (b (- j 1000))
+               (attempt (produced-primes a b)))
+          (when (> attempt best)
+            (setf best attempt
+                  best-pair (cons a b))))))
+    best-pair))
